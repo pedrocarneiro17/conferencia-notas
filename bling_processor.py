@@ -4,7 +4,7 @@ from io import BytesIO
 
 def process_bling_pdf(texto_completo):
     """
-    Processa um PDF do modelo Bling, extrai a tabela, ordena por Número em ordem decrescente,
+    Processa um PDF do modelo Bling, extrai a tabela, ordena por Número em ordem crescente,
     adiciona números ausentes e retorna o DataFrame e o Excel em memória.
     """
     dados = []
@@ -82,9 +82,9 @@ def process_bling_pdf(texto_completo):
     # Recriar DataFrame com números ausentes
     df = pd.DataFrame(dados, columns=colunas)
     
-    # Ordenar por 'Número' em ordem decrescente
+    # Ordenar por 'Número' em ordem crescente
     df['Número'] = df['Número'].astype(int)
-    df = df.sort_values(by='Número', ascending=False)
+    df = df.sort_values(by='Número', ascending=True)
     df['Número'] = df['Número'].apply(lambda x: f'{x:06d}')
     
     # Gerar Excel em memória

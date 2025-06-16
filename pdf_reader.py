@@ -15,6 +15,8 @@ def read_pdf_and_identify_model(pdf_path):
     # Identificar modelo com base na palavra "bling"
     if 'bling' in texto_completo.lower():
         modelo = 'Bling'
+    elif 'sgbr sistemas' in texto_completo.lower():
+        modelo = 'SGBr Sistemas'
     else:
         modelo = 'Unknown'
     
